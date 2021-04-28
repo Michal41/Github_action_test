@@ -1,11 +1,15 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-
+import { connect } from 'react-redux'
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import { TOGGLE_DARKMODE } from "../state/app"
+// import { toggleDarkMode } from "../state/app"
 
-const IndexPage = () => (
+const IndexPage = (props) =>{
+  const { isDarkMode, changeDarkMode } = props;
+  return (
   <Layout>
     <Seo title="Home" />
     <h1>Hi people</h1>
@@ -19,11 +23,28 @@ const IndexPage = () => (
       alt="A Gatsby astronaut"
       style={{ marginBottom: `1.45rem` }}
     />
+  <button
+    style={{backgroundColor: isDarkMode ? 'black' : 'white' }}
+    onClick={changeDarkMode}
+  >
+    some test text
+  </button>
     <p>
       <Link to="/page-2/">Go to page 2</Link> <br />
       <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
     </p>
   </Layout>
-)
+)}
+const mapStateToProps = (state) => {
+  return {
+    isDarkMode: state.app.isDarkMode
+  }
+}
 
-export default IndexPage
+const mapDispatchToProps = (dispach) => {
+  return {
+    changeDarkMode: () => dispach(TOGGLE_DARKMODE())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(IndexPage)
