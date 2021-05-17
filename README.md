@@ -1,7 +1,5 @@
 
-1.  ** Run locally in development mode.**
-
-    Use the Gatsby CLI to create a new site, specifying the default starter.
+1.  **Run locally in development mode.**
 
     ```shell
     docker-compose up --build
