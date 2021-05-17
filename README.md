@@ -16,30 +16,31 @@
     
     ```
     
-  1.  **Renew ssl certificate.**
+1.  **Renew ssl certificate.**
 
-  In project directory run
+    In project directory run
 
-  ```shell
-  docker exec -it noclegi bash
-  cerbot --nginx
+     ```shell
+     docker exec -it noclegi bash
+     cerbot --nginx
 
-  ```
-  
-  1.  **Recreate docker container .**
+     ```
+     
+1.  **Recreate docker container .**
 
-  Comment line 13 in docker-compose.prod.yml "- ./nginx/default.conf:/etc/nginx/sites-available/default" then
+    Comment line 13 in docker-compose.prod.yml "- ./nginx/default.conf:/etc/nginx/sites-available/default" then
 
-  ```shell
-  docker-compose -f docker-compose.prod.yml up -d --build
-  docker exec -it noclegi bash
-  cerbot --nginx
-
-  ```
-  Uncomment line 13 in docker-compose.prod.yml "- ./nginx/default.conf:/etc/nginx/sites-available/default" then
-  
     ```shell
-  docker-compose -f docker-compose.prod.yml up -d --build
+    docker-compose -f docker-compose.prod.yml up -d --build
+    docker exec -it noclegi bash
+    cerbot --nginx
 
-  ```
+    ```
+    Uncomment line 13 in docker-compose.prod.yml "- ./nginx/default.conf:/etc/nginx/sites-available/default" then
+    
+    ```shell
+    docker-compose -f docker-compose.prod.yml up -d --build
+
+    ```
+    
     
