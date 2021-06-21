@@ -1,4 +1,3 @@
-
 1.  **Run locally in development mode.**
 
     ```shell
@@ -11,9 +10,9 @@
 
     ```shell
     docker-compose -f docker-compose.prod.yml up -d --build
-    
+
     ```
-    
+
 1.  **Renew ssl certificate.**
 
     In project directory run
@@ -23,7 +22,6 @@
      cerbot --nginx
 
      ```
-     
 1.  **Recreate docker container .**
 
     Comment line 13 in docker-compose.prod.yml "- ./nginx/default.conf:/etc/nginx/sites-available/default" then
@@ -35,10 +33,10 @@
 
     ```
     Uncomment line 13 in docker-compose.prod.yml "- ./nginx/default.conf:/etc/nginx/sites-available/default" then
-    
+
     ```shell
     docker-compose -f docker-compose.prod.yml up -d --build
 
     ```
-    
-    
+
+
