@@ -7,5 +7,4 @@ jobs:
   deploy:
     runs-on: self-hosted
     steps:
-    - name: Refresh
     - run: whoami
