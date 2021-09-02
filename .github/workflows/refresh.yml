@@ -1,0 +1,11 @@
+name: Refrefh
+
+on:
+  workflow_dispatch
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+    - name: Refresh
+    - run: echo '123
