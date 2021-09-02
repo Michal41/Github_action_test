@@ -8,4 +8,4 @@ jobs:
     runs-on: self-hosted
     steps:
     - name: Refresh
-    - run: echo '123
+    - run: whoami
